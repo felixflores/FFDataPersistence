@@ -60,7 +60,7 @@
                                                                options:options
                                                                  error:&error];
     if (!store) {
-        DLog(@"Error adding persistent store to coordinator %@\n%@",
+        NSLog(@"Error adding persistent store to coordinator %@\n%@",
               [error localizedDescription], [error userInfo]);
         
         NSString *msg = [NSString stringWithFormat:@"There was a problem with database %@\n%@\n%@",

@@ -51,10 +51,10 @@
 - (void)logSavingOfContextFor:(NSString *)contextName andError:(NSError *)error
 {
     if (error) {
-        DLog(@"*** Error *** Saving managed context (%@):\n%@\n%@",
+        NSLog(@"*** Error *** Saving managed context (%@):\n%@\n%@",
              contextName, [error localizedDescription], [error userInfo]);
     } else {
-        DLog(@"Saving managed context (%@)", contextName);
+        NSLog(@"Saving managed context (%@)", contextName);
     }
 }
 
