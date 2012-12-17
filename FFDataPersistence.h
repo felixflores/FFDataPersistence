@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, getter=isStarted) BOOL started;
 
-+ (TCDataPersistence *)sharedInstance;
++ (FFDataPersistence *)sharedInstance;
 - (NSEntityDescription *)entityDescriptionForEntity:(NSString *)entityName;
 - (id)createEntity:(NSString *)entityName;
 @end
