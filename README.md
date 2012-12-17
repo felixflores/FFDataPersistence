@@ -16,7 +16,22 @@ Insert the following into your app delegate:
 	    return YES;
 	}
 
+Define the kTCDatabaseName constant (here I have created an FFConfiguration class:
+
+	#import <Foundation/Foundation.h>
+
+	@interface FFConfiguration : NSObject
+		extern NSString *kTCDatabaseName;
+	@end
+
+	@implementation FFConfiguration
+		NSString *kTCDatabaseName = @"CoreDataExample.sqlite";
+	@end
+
 Then on your pch file add the following:
+
+	// If you're using a configuration class
+	#import "FFConfiguration.h"
 
 	#import "FFDataPersistence.h"
 	#import "FFDataPersistence+Setup.h"
@@ -24,11 +39,11 @@ Then on your pch file add the following:
 
 Also make sure that CoreData is included in your project:
 
-#ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <CoreData/CoreData.h>
-#endif
+	#ifdef __OBJC__
+	    #import <UIKit/UIKit.h>
+	    #import <Foundation/Foundation.h>
+	    #import <CoreData/CoreData.h>
+	#endif
 
 Usage
 -----
