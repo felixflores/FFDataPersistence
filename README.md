@@ -22,6 +22,14 @@ Then on your pch file add the following:
 	#import "FFDataPersistence+Setup.h"
 	#import "FFDataPersistence+Saving.h"
 
+Also make sure that CoreData is included in your project:
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+#endif
+
 Usage
 -----
 To instantiate a new NSManagedObject
