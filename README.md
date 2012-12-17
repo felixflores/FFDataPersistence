@@ -16,16 +16,18 @@ Insert the following into your app delegate:
 	    return YES;
 	}
 
-Define the kTCDatabaseName constant (here I have created an FFConfiguration class:
+Define DataPersistenceDatabaseName and DataPersistenceManageObjectModel constants (here I have created an FFConfiguration class:
 
 	#import <Foundation/Foundation.h>
 
 	@interface FFConfiguration : NSObject
-		extern NSString *kTCDatabaseName;
+		extern NSString *DataPersistenceDatabaseName;
+		extern NSString *DataPersistenceManageObjectModel;
 	@end
 
 	@implementation FFConfiguration
-		NSString *kTCDatabaseName = @"CoreDataExample.sqlite";
+		NSString *DataPersistenceDatabaseName = @"CoreDataExample.sqlite";
+		NSString *DataPersistenceManageObjectModel = @"CoreDataExample";
 	@end
 
 Then on your pch file add the following:

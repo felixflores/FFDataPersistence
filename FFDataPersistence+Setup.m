@@ -21,7 +21,7 @@
 
 - (void)setupManagedObjectContext
 {
-    NSURL *modelURL = modelURL = [[NSBundle mainBundle] URLForResource:@"TimeCapsule" withExtension:@"momd"];
+    NSURL *modelURL = modelURL = [[NSBundle mainBundle] URLForResource:DataPersistenceManageObjectModel withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to file model URL");
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -45,7 +45,7 @@
 {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSURL *storeURL = [[fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    storeURL = [storeURL URLByAppendingPathComponent:kTCDatabaseName];
+    storeURL = [storeURL URLByAppendingPathComponent:DataPersistenceDatabaseName];
     
     NSError *error = nil;
     NSPersistentStoreCoordinator *coordinator = [[self managedObjectContext] persistentStoreCoordinator];
