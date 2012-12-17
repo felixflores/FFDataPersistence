@@ -1,7 +1,6 @@
 FFDataPersistence
 =================
 
-FFDataPersistence
 A helper class that simplifies application interaction with CoreData.
 
 Setup
