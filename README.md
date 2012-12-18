@@ -5,15 +5,6 @@ A helper class that simplifies application interaction with CoreData.
 
 Setup
 -----
-Insert the following into your app delegate:
-
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-	{
-	    FFDataPersistence *dataPersistence = [FFDataPersistence sharedInstance];
-	    [dataPersistence start];
-	    
-	    return YES;
-	}
 
 Define DataPersistenceDatabaseName and DataPersistenceManageObjectModel constants (here I have created an FFConfiguration class:
 
@@ -47,6 +38,17 @@ Also make sure that CoreData is included in your project:
 	    #import <CoreData/CoreData.h>
 	#endif
 
+
+You can optionally insert this to your app delegate to manually start the managed object context:
+
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+	{
+	    FFDataPersistence *dataPersistence = [FFDataPersistence sharedInstance];
+	    [dataPersistence start];
+	    
+	    return YES;
+	}
+
 Usage
 -----
 To instantiate a new NSManagedObject
@@ -67,4 +69,4 @@ or
 
 Code Sample
 -----------
-https://github.com/felixflores/CoreDataCodeSample
+https://github.com/felixflores/CoreDataCodeSamples
