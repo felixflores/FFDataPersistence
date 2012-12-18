@@ -37,6 +37,7 @@ Then on your pch file add the following:
 	#import "FFDataPersistence.h"
 	#import "FFDataPersistence+Setup.h"
 	#import "FFDataPersistence+Saving.h"
+	#import "NSManagedObject+FFDataPersistence.h"
 
 Also make sure that CoreData is included in your project:
 
@@ -50,7 +51,7 @@ Usage
 -----
 To instantiate a new NSManagedObject
 
-	NSManagedObject *myObj = [[FFDataPersistence sharedInstance] createEntity:@"NameOfManagedObject"];
+	NSManagedObject *myObj = [NSManagedObject initInDataPersistenceContext];
 
 This method returns an NSManagedObject which you can set attributes for
 
@@ -58,8 +59,12 @@ This method returns an NSManagedObject which you can set attributes for
 
 Then when you are done manipulating your NSManageObject you can save the current context
 
-	[[FFDataPersistence sharedInstance] saveContext];
+	[myObject save];
 
 or 
 
-	[[FFDataPersistence sharedInstance] saveContextAndWait];
+	[myObject saveAndWait];
+
+Code Sample
+-----------
+https://github.com/felixflores/CoreDataCodeSample

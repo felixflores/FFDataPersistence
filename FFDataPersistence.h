@@ -15,6 +15,6 @@
 @property (nonatomic, getter=isStarted) BOOL started;
 
 + (FFDataPersistence *)sharedInstance;
-- (NSEntityDescription *)entityDescriptionForEntity:(NSString *)entityName;
-- (id)createEntity:(NSString *)entityName;
+- (NSEntityDescription *)entityDescriptionWithName:(NSString *)entityName;
+- (id)entityWithName:(NSString *)entityName;
 @end

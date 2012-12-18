@@ -10,6 +10,15 @@
 
 @implementation FFDataPersistence
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    if (!_managedObjectContext) {
+        [self start];
+    }
+    
+    return _managedObjectContext;
+}
+
 + (FFDataPersistence *)sharedInstance
 {
     static FFDataPersistence *sharedInstance = nil;
@@ -22,7 +31,7 @@
     return sharedInstance;
 }
 
-- (NSEntityDescription *)entityDescriptionForEntity:(NSString *)entityName
+- (NSEntityDescription *)entityDescriptionWithName:(NSString *)entityName
 {
     NSEntityDescription *entity = [NSEntityDescription entityForName:entityName
                                               inManagedObjectContext:[self managedObjectContext]];
@@ -30,9 +39,9 @@
     return entity;
 }
 
-- (id)createEntity:(NSString *)entityName
+- (id)entityWithName:(NSString *)entityName
 {
-    NSEntityDescription *entityDesc = [self entityDescriptionForEntity:entityName];
+    NSEntityDescription *entityDesc = [self entityDescriptionWithName:entityName];
     
     return [[NSManagedObject alloc] initWithEntity:entityDesc
                     insertIntoManagedObjectContext:[self managedObjectContext]];
