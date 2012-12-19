@@ -17,4 +17,5 @@
 + (FFDataPersistence *)sharedInstance;
 - (NSEntityDescription *)entityDescriptionWithName:(NSString *)entityName;
 - (id)entityWithName:(NSString *)entityName;
+
 @end

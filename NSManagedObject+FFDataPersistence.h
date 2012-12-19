@@ -9,7 +9,9 @@
 #import <CoreData/CoreData.h>
 
 @interface NSManagedObject (FFDataPersistence)
+
 - (id)initInDataPersistenceContext;
 - (void)save;
 - (void)saveAndWait;
+
 @end

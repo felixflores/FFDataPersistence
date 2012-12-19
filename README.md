@@ -6,21 +6,12 @@ A helper class that simplifies application interaction with CoreData.
 Setup
 -----
 
-Define DataPersistenceDatabaseName and DataPersistenceManageObjectModel constants (here I have created an FFConfiguration class:
+Add the following to your plist:
 
-	#import <Foundation/Foundation.h>
+	[[NSBundle mainBundle] infoDictionary][@"Data Persistence"][@"Manage Object Model"];
+	[[NSBundle mainBundle] infoDictionary][@"Data Persistence"][@"Database Name"];
 
-	@interface FFConfiguration : NSObject
-		extern NSString *DataPersistenceDatabaseName;
-		extern NSString *DataPersistenceManageObjectModel;
-	@end
-
-	@implementation FFConfiguration
-		NSString *DataPersistenceDatabaseName = @"CoreDataExample.sqlite";
-		NSString *DataPersistenceManageObjectModel = @"CoreDataExample";
-	@end
-
-Then on your pch file add the following:
+Then on your .pch file add the following:
 
 	// If you're using a configuration class
 	#import "FFConfiguration.h"
@@ -39,7 +30,7 @@ Also make sure that CoreData is included in your project:
 	#endif
 
 
-You can optionally insert this to your app delegate to manually start the managed object context:
+You can *optionally* insert this to your app delegate to manually start the managed object context:
 
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 	{

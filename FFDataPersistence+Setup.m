@@ -21,7 +21,8 @@
 
 - (void)setupManagedObjectContext
 {
-    NSURL *modelURL = modelURL = [[NSBundle mainBundle] URLForResource:DataPersistenceManageObjectModel withExtension:@"momd"];
+    NSString *manageObjectModel = [[NSBundle mainBundle] infoDictionary][@"Data Persistence"][@"Manage Object Model"];
+    NSURL *modelURL = modelURL = [[NSBundle mainBundle] URLForResource:manageObjectModel withExtension:@"momd"];
     NSAssert(modelURL, @"Failed to file model URL");
     
     NSManagedObjectModel *mom = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
@@ -45,7 +46,9 @@
 {
     NSFileManager *fm = [NSFileManager defaultManager];
     NSURL *storeURL = [[fm URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    storeURL = [storeURL URLByAppendingPathComponent:DataPersistenceDatabaseName];
+    NSString *databaseName = [[NSBundle mainBundle] infoDictionary][@"Data Persistence"][@"Database Name"];
+    
+    storeURL = [storeURL URLByAppendingPathComponent:databaseName];
     
     NSError *error = nil;
     NSPersistentStoreCoordinator *coordinator = [[self managedObjectContext] persistentStoreCoordinator];

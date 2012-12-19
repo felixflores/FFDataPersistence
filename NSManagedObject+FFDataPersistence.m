@@ -9,6 +9,7 @@
 #import "NSManagedObject+FFDataPersistence.h"
 
 @implementation NSManagedObject (FFDataPersistence)
+
 - (id)initInDataPersistenceContext
 {
     NSString *className = NSStringFromClass([self class]);
@@ -26,4 +27,5 @@
 {
     [[FFDataPersistence sharedInstance] saveContextAndWait];
 }
+
 @end

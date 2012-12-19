@@ -9,6 +9,8 @@
 #import "FFDataPersistence.h"
 
 @interface FFDataPersistence (Saving)
+
 - (void)saveContext;
 - (void)saveContextAndWait;
+
 @end
