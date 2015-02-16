@@ -60,4 +60,4 @@ or
 
 Code Sample
 -----------
-https://github.com/felixflores/CoreDataCodeSamples
+https://github.com/felixflores/CoreDataCodeSample
